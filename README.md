@@ -21,7 +21,7 @@ Release | Notes
 
 Project | Aras
 --------|------
-[v1.0](https://github.com/ArasLabs/rohs-addon/releases/tag/v1.0) | Aras 8.1.1, 9.1, 9.2, 9.3
+[v1.0](https://github.com/ArasLabs/rohs-addon/releases/tag/v1.0) | Aras 8.1.1
 
 > ###### *Please note: Aras Community Projects are provided on an "as-is" basis.*
 
