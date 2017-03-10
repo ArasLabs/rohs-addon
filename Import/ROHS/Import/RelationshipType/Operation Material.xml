@@ -19,7 +19,7 @@
    <Item type="ItemType" id="939A829BB7EB46B2BEA1C7001F2F6D74" action="add">
     <allow_private_permission>1</allow_private_permission>
     <auto_search>0</auto_search>
-    <default_lifecycle keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</default_lifecycle>
+    <!--<default_lifecycle keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</default_lifecycle>-->
     <hide_where_used>0</hide_where_used>
     <implementation_type>table</implementation_type>
     <instance_data>OPERATION_MATERIAL</instance_data>
@@ -29,11 +29,14 @@
     <manual_versioning>0</manual_versioning>
     <name>Operation Material</name>
     <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
-    <save_history>0</save_history>
+    <!--<save_history>0</save_history>-->
     <show_parameters_tab>1</show_parameters_tab>
     <unlock_on_logout>0</unlock_on_logout>
     <use_src_access>1</use_src_access>
     <Relationships>
+		 <Item type="ItemType Life Cycle" id="2CC56DEBCA454D68AA2B4A622120DE36" action="add">
+			<related_id>2F3B75E17C4E4F2D9599579A965BFA64</related_id>
+		</Item>
      <Item type="Property" id="BCD63E646C5945E08434C808A8DC7AEB" action="add">
       <column_alignment>right</column_alignment>
       <data_type>decimal</data_type>

@@ -33,6 +33,9 @@
     <unlock_on_logout>0</unlock_on_logout>
     <use_src_access>1</use_src_access>
     <Relationships>
+		<Item type="ItemType Life Cycle" id="0698108B91E940038F300203D9556FF5" action="add">
+      <related_id>2F3B75E17C4E4F2D9599579A965BFA64</related_id>
+    </Item>
      <Item type="Property" id="671D36A59B5945C3AF43431B3A9BF685" action="add">
       <column_alignment>left</column_alignment>
       <data_type>string</data_type>

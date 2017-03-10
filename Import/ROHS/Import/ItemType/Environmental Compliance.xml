@@ -2,7 +2,7 @@
  <Item type="ItemType" id="5895F2138B5F47E48702234C8D5E0A9D" action="add">
   <allow_private_permission>0</allow_private_permission>
   <auto_search>1</auto_search>
-  <default_lifecycle keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</default_lifecycle>
+  <!--<default_lifecycle keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</default_lifecycle>-->
   <default_page_size>25</default_page_size>
   <hide_where_used>0</hide_where_used>
   <implementation_type>table</implementation_type>
@@ -17,12 +17,15 @@
   <name>Environmental Compliance</name>
   <open_icon>../images/Icons/16x16/16x16_toc.gif</open_icon>
   <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
-  <save_history>0</save_history>
+  <!--<save_history>0</save_history>-->
   <show_parameters_tab>0</show_parameters_tab>
   <structure_view>tab view</structure_view>
   <unlock_on_logout>0</unlock_on_logout>
   <use_src_access>0</use_src_access>
   <Relationships>
+  <Item type="ItemType Life Cycle" id="B2346EF872FB46C3AFC75C1EB6731EA1" action="add">
+    <related_id>2F3B75E17C4E4F2D9599579A965BFA64</related_id>
+  </Item>
    <Item type="Allowed Permission" id="79B63722DF0A4EE0945C538E9894C828" action="add">
     <is_default>1</is_default>
     <related_id keyed_name="Environmental Compliance" type="Permission">7F39503EC042486CBDF22C83E7E38E7D</related_id>

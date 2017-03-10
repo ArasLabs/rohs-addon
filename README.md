@@ -16,12 +16,14 @@ Release notes/descriptions for the original project posted on the previous Aras 
 Release | Notes
 --------|--------
 [v1.0](https://github.com/ArasLabs/rohs-addon/releases/tag/v1.0) | Initial release of the data model and documentation.
+[v1.1](https://github.com/ArasLabs/rohs-addon/releases/tag/v1.1) | ItemTypes Updated for import to 9.1 and higher. Smoke tested in 9.3.
 
 #### Supported Aras Versions
 
 Project | Aras
 --------|------
 [v1.0](https://github.com/ArasLabs/rohs-addon/releases/tag/v1.0) | Aras 8.1.1
+[v1.1](https://github.com/ArasLabs/rohs-addon/releases/tag/v1.1) | Aras 9.1, 9.2, 9.3
 
 > ###### *Please note: Aras Community Projects are provided on an "as-is" basis.*
 
