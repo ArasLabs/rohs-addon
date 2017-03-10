@@ -1,0 +1,118 @@
+<AML>
+ <Item type="Form" id="DCB29304DB21460FA18CB3BA840C99FF" action="add">
+  <height>50</height>
+  <name>Material</name>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>600</width>
+  <Relationships>
+   <Item type="Body" id="7DF7EBE28CB94CA0AE4D1F129571154C" action="add">
+    <bg_attach>scroll</bg_attach>
+    <bg_color>#FFFFFF</bg_color>
+    <bg_image>../images/Backgrounds/wvleft.gif</bg_image>
+    <bg_repeat>no-repeat</bg_repeat>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Material" type="Form">DCB29304DB21460FA18CB3BA840C99FF</source_id>
+    <Relationships>
+     <Item type="Field" id="075F2560C2DE41689F1CE28341CB5984" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_visible>1</is_visible>
+      <label>CAS #</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>cas</name>
+      <positioning>absolute</positioning>
+      <propertytype_id keyed_name="cas" type="Property">12B050062B4C4CC1B0A1EF1080C6CC7C</propertytype_id>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="7DF7EBE28CB94CA0AE4D1F129571154C" type="Body">7DF7EBE28CB94CA0AE4D1F129571154C</source_id>
+      <tab_index>384</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>406</x>
+      <y>53</y>
+      </Item>
+     <Item type="Field" id="02634225C53841338908F43C02877D14" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<table border='0' cellspacing='0' cellpadding='0'>
+<tr><td colspan='2'>
+<script>
+  document.write('<img hspace="20" vspace="20" src="' + top.aras.getItemProperty(document.itemType,'large_icon') + '">');
+</Script>
+</td></tr>
+<tr><td colspan='2'><img src='../images/lines/wvline.gif'></td></tr>
+<tr><td colspan='2'><img src='../images/icons/other/1x1.gif' width='1' height='10'></td></tr>
+<tr><td><img src='../images/icons/other/1x1.gif' width='20' height='1'>
+<td width='150'><p class='vbig'><b>
+<script>
+  var labelIT = top.aras.getItemProperty(document.itemType, 'label'); 
+  if (labelIT == '') labelIT = document.itemTypeName; 
+  document.write(labelIT);
+</Script>
+</b></p>
+</td></tr></table>
+]]></html_code>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <name>item_info</name>
+      <positioning>absolute</positioning>
+      <sort_order>512</sort_order>
+      <source_id keyed_name="7DF7EBE28CB94CA0AE4D1F129571154C" type="Body">7DF7EBE28CB94CA0AE4D1F129571154C</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      </Item>
+     <Item type="Field" id="64B4177FE7304DBFBC17F8E0AB8AC0E6" action="add">
+      <bg_color>#f5f5dc</bg_color>
+      <border_width>0</border_width>
+      <display_length>64</display_length>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_visible>1</is_visible>
+      <label>Name</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>name</name>
+      <positioning>absolute</positioning>
+      <propertytype_id keyed_name="material" type="Property">695E99B3281747258E3644B67CE86296</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="7DF7EBE28CB94CA0AE4D1F129571154C" type="Body">7DF7EBE28CB94CA0AE4D1F129571154C</source_id>
+      <tab_index>128</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>10</y>
+      </Item>
+     <Item type="Field" id="F43B5EC462184E8F9C34F0F6B18592AF" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_visible>1</is_visible>
+      <label>Symbol</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>symbol</name>
+      <positioning>absolute</positioning>
+      <propertytype_id keyed_name="symbol" type="Property">5BA84A0CBD074FF382C18C590E5FBC8F</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="7DF7EBE28CB94CA0AE4D1F129571154C" type="Body">7DF7EBE28CB94CA0AE4D1F129571154C</source_id>
+      <tab_index>256</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>190</x>
+      <y>50</y>
+      </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

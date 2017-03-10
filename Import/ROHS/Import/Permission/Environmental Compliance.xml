@@ -1,0 +1,21 @@
+<AML>
+ <Item type="Permission" id="7F39503EC042486CBDF22C83E7E38E7D" action="add">
+  <is_private>0</is_private>
+  <name>Environmental Compliance</name>
+  <Relationships>
+   <Item type="Access" id="445716D77E8B43FCABD92A6A8E5D82BF" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Environmental Compliance" type="Permission">7F39503EC042486CBDF22C83E7E38E7D</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

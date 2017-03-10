@@ -1,0 +1,131 @@
+<AML>
+ <Item type="Report" id="48FB40FACFB94947BE498A95E703EA96" action="add">
+  <location>server</location>
+  <method keyed_name="Env Compliance Report method" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>Env Compliance Report method</name>
+   </Item>
+  </method>
+  <name>Compliance Report</name>
+  <report_query><![CDATA[<Item type="{@type}" id="{@id}" action="get" select=""/>
+]]></report_query>
+  <target>window</target>
+  <type>item</type>
+  <xsl_stylesheet><![CDATA[<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="html"></xsl:output>
+  <xsl:template match="/">
+    <html>
+      <head>
+        <link rel="stylesheet" type="text/css" href="../styles/default.css"></link>
+			</head>
+      <body>
+        <font size="5">
+          <b>
+            <center>Compliance Report</center>
+          </b>
+        </font>
+        <br></br>
+        <font size="4">
+          <table width="100%" cellpadding="2" cellspacing="2" border="0">
+            <tr>
+              <td width="120" align="left" uniqueID="ms__id1">
+                <b>Part Number:</b>
+              </td>
+              <td align="left" uniqueID="ms__id2">
+                <xsl:value-of select="REPORT/@item_number"></xsl:value-of>
+              </td>
+			</tr>
+            <tr>
+              <td width="120" align="left" uniqueID="ms__id3">
+                <b>Part Name:</b>
+              </td>
+              <td align="left" uniqueID="ms__id4">
+                <xsl:value-of select="REPORT/@name"></xsl:value-of>
+              </td>
+			</tr>
+            <tr>
+              <td width="120" align="left" uniqueID="ms__id5">
+                <b>Description:</b>
+              </td>
+              <td align="left" uniqueID="ms__id6">
+                <xsl:value-of select="REPORT/@description"></xsl:value-of>
+              </td>
+			</tr>
+			</table>
+			</font>
+        <br></br>
+        <table width="100%" border="1" cellpadding="1" cellspacing="1">
+          <tr>
+            <th>BOM</th>
+            <th>Supplier Part</th>
+            <th>Name</th>
+            <th>Vendor</th>
+            <xsl:for-each select="REPORT/HEADER/H">
+              <th>
+                <xsl:value-of select="@title"></xsl:value-of>
+						</th>
+					</xsl:for-each>
+				</tr>
+          <xsl:for-each select="REPORT/DATA/Part">
+            <xsl:if test="@item_number and not (MfgPart)">
+              <tr>
+                <td uniqueID="ms__id7">
+                  <xsl:value-of select="@item_number"></xsl:value-of>
+							</td>
+                <td bgcolor="red" colspan="3" uniqueID="ms__id8">NO SUPPLIERS IN DATABASE</td>
+                <xsl:for-each select="../../../REPORT/HEADER/H">
+                  <td align="center" bgcolor="red" uniqueID="ms__id9">N/A</td>
+							</xsl:for-each>
+						</tr>
+					</xsl:if>
+            <xsl:for-each select="MfgPart">
+              <tr>
+                <xsl:if test="position()=1">
+                  <td uniqueID="ms__id10">
+                    <xsl:attribute name="rowspan">
+                      <xsl:value-of select="count(../MfgPart)"></xsl:value-of>
+								</xsl:attribute>
+                    <xsl:if test="count(../MfgPart)&gt;1">
+                      <xsl:value-of select="../@item_number"></xsl:value-of>
+							</xsl:if>
+						</td>
+						</xsl:if>
+                <td uniqueID="ms__id11">
+                  <xsl:value-of select="@item_number"></xsl:value-of>
+										</td>
+                <td uniqueID="ms__id12">
+                  <xsl:value-of select="@name"></xsl:value-of>
+										</td>
+                <td uniqueID="ms__id13">
+                  <xsl:value-of select="@vendor"></xsl:value-of>
+										</td>
+                <xsl:for-each select="H">
+                  <td align="center" uniqueID="ms__id14">
+                    <xsl:choose>
+                      <xsl:when test="text()='OK'">
+                        <xsl:attribute name="bgcolor">green</xsl:attribute>
+													</xsl:when>
+                      <xsl:when test="text()='Fail'">
+                        <xsl:attribute name="bgcolor">red</xsl:attribute>
+													</xsl:when>
+                      <xsl:when test="text()='No Data'">
+                        <xsl:attribute name="bgcolor">yellow</xsl:attribute>
+													</xsl:when>
+                      <xsl:otherwise>
+													</xsl:otherwise>
+												</xsl:choose>
+                    <xsl:value-of select="text()"></xsl:value-of>
+											</td>
+										</xsl:for-each>
+					</tr>
+					</xsl:for-each>
+				</xsl:for-each>
+			</table>
+			</body>
+      <script src="../../javascript/PopupMenu.js"></script>
+    </html>
+	</xsl:template>
+
+</xsl:stylesheet>]]></xsl_stylesheet>
+ </Item>
+</AML>

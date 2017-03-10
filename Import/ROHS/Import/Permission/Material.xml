@@ -1,0 +1,21 @@
+<AML>
+ <Item type="Permission" id="6989D482F87D4C2BB58D1F8B838B655C" action="add">
+  <is_private>0</is_private>
+  <name>Material</name>
+  <Relationships>
+   <Item type="Access" id="5E7BBF4C4D4A4146AB360DA590A80BE5" action="add">
+    <can_change_access>1</can_change_access>
+    <can_delete>1</can_delete>
+    <can_get>1</can_get>
+    <can_update>1</can_update>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Material" type="Permission">6989D482F87D4C2BB58D1F8B838B655C</source_id>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

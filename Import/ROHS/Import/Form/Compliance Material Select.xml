@@ -1,0 +1,34 @@
+<AML>
+ <Item type="Form" id="331234615CED4F9789F36B428A90A740" action="add">
+  <height>200</height>
+  <name>Compliance Material Select</name>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>500</width>
+  <Relationships>
+   <Item type="Body" id="029B6F70F7064B9AA38A4CDE4A96E121" action="add">
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Compliance Material Select" type="Form">331234615CED4F9789F36B428A90A740</source_id>
+    <Relationships>
+     <Item type="Field" id="A9D1DDBB9DA541B2941C182DFDDB46F0" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>html</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <name>html0</name>
+      <positioning>absolute</positioning>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="029B6F70F7064B9AA38A4CDE4A96E121" type="Body">029B6F70F7064B9AA38A4CDE4A96E121</source_id>
+      <tab_stop>1</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

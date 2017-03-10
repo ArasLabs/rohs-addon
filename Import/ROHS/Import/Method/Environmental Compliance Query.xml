@@ -1,0 +1,111 @@
+<AML>
+ <Item type="Method" id="505DAAA668314F758C76C7608D676759" action="add">
+  <method_code><![CDATA[' Compliance Query - builds RoHS compliant dashboard
+'
+'
+'  history:
+'===========
+' peter   5.31.206    original release     
+' peter   8.14.2006   merge Nate's new style sheet
+'
+'
+'
+'=============================================================================================  
+Dim myInnovator = Me.newInnovator()
+Dim myID As String = Me.getID()
+Dim AML As String=""
+AML="<Item type='Environmental Compliance' action='get' select='regulation,destination'><Relationships><Item type='Env Compl Materials' select='threshold,related_id'></Item></Relationships></Item>"
+Dim myQRY = Me.newItem()
+myQry.loadAML(AML)
+'  myQry.dom.save(CCO.Server.mapPath("./logs/compliance.qry1.xml"))
+Dim Result = myQry.apply()
+' Result.dom.save(CCO.Server.mapPath("./logs/compliance.result1.xml"))
+
+AML = "<Item type='Part' id='" & myID & "' select='item_number,name,description,make_buy' action='GetItemRepeatConfig'><Relationships><Item type='Part BOM' select='related_id,quantity' repeatProp='related_id' repeatTimes='0' /><Item type='Part AML' select='related_id'><related_id><Item type='Manufacturer Part' select='item_number,name,description,manufacturer(name)'><Relationships><Item type='Manufacturer Part Material' select='related_id,ppm,description,weight,weight_units'></Item></Relationships></Item></related_id></Item></Relationships></Item>" 
+myQry.loadAML(AML)
+' myQry.dom.save(CCO.Server.mapPath("./logs/compliance.qry2.xml"))
+Dim Result2 = myQry.apply()
+' Result2.dom.save(CCO.Server.mapPath("./logs/compliance.result2.xml"))
+
+Dim ResultXML As String = "<REPORT item_number='" & Me.getProperty("item_number") & "' name='" & Me.getProperty("name") & "' description='" & Me.getProperty("description") & "'>"
+Dim EC = Result.getItemsByXPath("//Item[@type='Environmental Compliance']")
+
+Dim e As Integer
+Dim i As Integer
+Dim AssyGrade As String = "GREEN"
+' build the header
+ResultXML = ResultXML & "<HEADER>"
+For e=0 To EC.getItemCount()-1 
+   ResultXML = ResultXML & "<H sort_order='" & e & "' title='" & EC.getItemByIndex(e).getProperty("regulation") & " for " & EC.getItemByIndex(e).getProperty("destination") & "'/>"
+Next
+ResultXML = ResultXML & "</HEADER><DATA>"
+Dim PARTS = Result2.getItemsByXPath("//Item[@type='Part' and make_buy='Buy']")
+Dim p As Integer
+Dim a As Integer
+For p=0 To PARTS.getItemCount()-1
+	'  for each part,  only report if it is a BUY part
+   
+   ResultXML = ResultXML & "<Part item_number='" & PARTS.getItemByIndex(p).getProperty("item_number") & "'>"
+   Dim PartGrade As String="UNKNOWN"
+  
+   Dim goodCount = 0
+   Dim badCount = 0
+   Dim mfgPartGrade As String="OK"
+   Dim BUYPARTS = PARTS.getItemByIndex(p).getItemsByXPath("Relationships/Item[@type='Part AML']/related_id/Item[@type='Manufacturer Part']")
+   For a=0 To BUYPARTS.getItemCount() -1
+   	   '  for this AML relationship record each Mfg part
+   	   Dim vendorItem = BUYPARTS.getItemByIndex(a).getPropertyItem("manufacturer")  	   
+       ResultXML = ResultXML & "<MfgPart item_number='" & BUYPARTS.getItemByIndex(a).getProperty("item_number")& "' name='" & BUYPARTS.getItemByIndex(a).getProperty("name") & "' description='" & BUYPARTS.getItemByIndex(a).getProperty("description") & "' vendor='" & vendorItem.getProperty("keyed_name","na") & "'>"
+       For e=0 To EC.getItemCount()-1 
+           mfgPartGrade ="OK"
+           ResultXML = ResultXML & "<H sort_order='" & e & "'>"
+           
+           Dim THRESHOLDS = EC.getItemByIndex(e).getItemsByXPath("Relationships/Item[@type='Env Compl Materials']")
+           For i=0 To THRESHOLDS.getItemCount()-1
+           	  Dim MatlID = THRESHOLDS.getItemByIndex(i).getProperty("related_id")
+           	  Dim Threshold = THRESHOLDS.getItemByIndex(i).getProperty("threshold")
+           	  
+           	  ' see if this Mfg Part has reported a value for the same material
+		   	   Dim VALUES = BUYPARTS.getItemByIndex(a).getItemsByXPath("Relationships/Item[@type='Manufacturer Part Material' and related_id='" & MatlID & "']")
+			   If VALUES.getItemCount() =1 Then
+			   	   Dim Value = VALUES.getItemByIndex(0).getProperty("ppm")
+				   If CInt(Value) > CInt(Threshold) Then mfgPartGrade="Fail"
+	           End If    
+			   If VALUES.getItemCount() =0 Then
+                   ' if the Mfg has not specified a Value for a required material,  we need a NO DATA flag set
+			       mfgPartGrade="No Data"
+			       ' note this grade is over-written by a Fail on any other Material
+			   End If
+           Next
+           ResultXML = ResultXML & mfgPartGrade & "</H>"       	
+       Next      
+       ResultXML = ResultXML & "</MfgPart>"
+       If mfgPartGrade = "Fail" Then badCount = badCount + 1
+       If mfgPartGrade = "OK" Then goodCount = goodCount + 1
+   Next
+   If badCount > 0 And goodCount=0 Then partGrade="RED"     ' No supplier parts pass compliance test
+   If badCount = 0 And goodCount>0 Then partGrade="GREEN"   ' no bad suppliers,  all pass the compliance test
+   If badCount > 0 And goodCount>0 Then partGrade="YELLOW"  ' at least one good supplier , but there is also a bad supplier
+   If badCount = 0 And goodCount=0 Then partGrade="NO SUPPLIERS"  ' no suppliers specified
+   If partGrade = "YELLOW" And AssyGrade="GREEN" Then AssyGrade="YELLOW"
+   If partGrade = "RED"  Then AssyGrade="RED"
+   ResultXML = ResultXML & partGrade & "</Part>"  
+Next
+
+
+resultXML = resultXML & "</DATA>" & AssyGrade & "</REPORT>"
+result2.dom.loadXML(resultXML)
+Result2.dom.save(CCO.Server.mapPath("./logs/compliance.Report.xml"))
+
+
+' 08.14.2006   style the result into a dashboard report
+Dim result3 =Me.newItem()
+Dim HTML As String = result2.applyStylesheet("../client/customer/styles/ComplianceQuery.xsl","URL")
+' cco.utilities.writedebug("peter",myString)
+
+Return myInnovator.newResult(HTML)
+]]></method_code>
+  <method_type>VB</method_type>
+  <name>Environmental Compliance Query</name>
+ </Item>
+</AML>

@@ -1,0 +1,96 @@
+<AML>
+ <Item type="Form" id="FDFC71FEAB804573B7A5C9F16511531D" action="add">
+  <height>150</height>
+  <name>Environmental Compliance</name>
+  <stylesheet><![CDATA[../styles/default.css]]></stylesheet>
+  <width>600</width>
+  <Relationships>
+   <Item type="Body" id="2234226DE5A048D982C3DE817420FDA9" action="add">
+    <bg_attach>scroll</bg_attach>
+    <bg_color>#FFFFFF</bg_color>
+    <bg_image>../images/Backgrounds/wvleft.gif</bg_image>
+    <bg_repeat>no-repeat</bg_repeat>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Environmental Compliance" type="Form">FDFC71FEAB804573B7A5C9F16511531D</source_id>
+    <Relationships>
+     <Item type="Field" id="A36C1D27308B4051AF9FEA4B085EC043" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <display_length>36</display_length>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_visible>1</is_visible>
+      <label>Destination</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>destination</name>
+      <positioning>absolute</positioning>
+      <propertytype_id keyed_name="destination" type="Property">002E573EE3AE4152949A16C0221CF209</propertytype_id>
+      <sort_order>256</sort_order>
+      <source_id keyed_name="2234226DE5A048D982C3DE817420FDA9" type="Body">2234226DE5A048D982C3DE817420FDA9</source_id>
+      <tab_index>256</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>320</x>
+      <y>33</y>
+      </Item>
+     <Item type="Field" id="AF24508F0FDD41459444C0E7455DCE70" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <field_type>html</field_type>
+      <html_code><![CDATA[<table border='0' cellspacing='0' cellpadding='0'>
+<tr><td colspan='2'>
+<script>
+  document.write('<img hspace="20" vspace="20" src="' + top.aras.getItemProperty(document.itemType,'large_icon') + '">');
+</Script>
+</td></tr>
+<tr><td colspan='2'><img src='../images/lines/wvline.gif'></td></tr>
+<tr><td colspan='2'><img src='../images/icons/other/1x1.gif' width='1' height='10'></td></tr>
+<tr><td><img src='../images/icons/other/1x1.gif' width='20' height='1'>
+<td width='150'><p class='vbig'><b>
+<script>
+  var labelIT = top.aras.getItemProperty(document.itemType, 'label'); 
+  if (labelIT == '') labelIT = document.itemTypeName; 
+  document.write(labelIT);
+</Script>
+</b></p>
+</td></tr></table>
+]]></html_code>
+      <is_visible>1</is_visible>
+      <list_no_blank>0</list_no_blank>
+      <name>item_info</name>
+      <positioning>absolute</positioning>
+      <sort_order>384</sort_order>
+      <source_id keyed_name="2234226DE5A048D982C3DE817420FDA9" type="Body">2234226DE5A048D982C3DE817420FDA9</source_id>
+      <tab_stop>0</tab_stop>
+      <x>0</x>
+      <y>0</y>
+      </Item>
+     <Item type="Field" id="C9692722C9524D1BB0710B6D58BA33EA" action="add">
+      <bg_color>#FFFFFF</bg_color>
+      <border_width>0</border_width>
+      <field_type>text</field_type>
+      <font_color>#000000</font_color>
+      <font_family>arial, helvetica, sans-serif</font_family>
+      <font_size>8pt</font_size>
+      <font_weight>bold</font_weight>
+      <is_visible>1</is_visible>
+      <label>Regulation</label>
+      <label_position>top</label_position>
+      <list_no_blank>0</list_no_blank>
+      <name>regulation</name>
+      <positioning>absolute</positioning>
+      <propertytype_id keyed_name="regulation" type="Property">DDA69F4EBD4043C6AFCD9CB1EE41A5FA</propertytype_id>
+      <sort_order>128</sort_order>
+      <source_id keyed_name="2234226DE5A048D982C3DE817420FDA9" type="Body">2234226DE5A048D982C3DE817420FDA9</source_id>
+      <tab_index>128</tab_index>
+      <tab_stop>1</tab_stop>
+      <x>188</x>
+      <y>31</y>
+      </Item>
+    </Relationships>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

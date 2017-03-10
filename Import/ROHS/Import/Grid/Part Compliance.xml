@@ -1,0 +1,9 @@
+<AML>
+ <Item type="Grid" id="948547A5E6B241949595E88A38E7ECE3" action="add">
+  <method keyed_name="Environmental Compliance Grid" type="Method">7561B05EB9C04BBD86CDD44BFF8D9C3C</method>
+  <name>Part Compliance</name>
+  <query><![CDATA[<Item type="Part" action="get" select="id">
+<id>{id}</id>
+</Item>]]></query>
+  </Item>
+</AML>

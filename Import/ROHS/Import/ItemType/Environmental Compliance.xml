@@ -1,0 +1,120 @@
+<AML>
+ <Item type="ItemType" id="5895F2138B5F47E48702234C8D5E0A9D" action="add">
+  <allow_private_permission>0</allow_private_permission>
+  <auto_search>1</auto_search>
+  <default_lifecycle keyed_name="Default" type="Life Cycle Map">2F3B75E17C4E4F2D9599579A965BFA64</default_lifecycle>
+  <default_page_size>25</default_page_size>
+  <hide_where_used>0</hide_where_used>
+  <implementation_type>table</implementation_type>
+  <instance_data>ENVIRONMENTAL_COMPLIANCE</instance_data>
+  <is_dependent>0</is_dependent>
+  <is_relationship>0</is_relationship>
+  <is_versionable>0</is_versionable>
+  <label>Environmental Compliance</label>
+  <label_plural>Environmental Compliance</label_plural>
+  <large_icon>../images/Icons/16x16/16x16_toc.gif</large_icon>
+  <manual_versioning>0</manual_versioning>
+  <name>Environmental Compliance</name>
+  <open_icon>../images/Icons/16x16/16x16_toc.gif</open_icon>
+  <revisions keyed_name="Default" type="Revision">7FE395DD8B9F4E1090756A34B733D75E</revisions>
+  <save_history>0</save_history>
+  <show_parameters_tab>0</show_parameters_tab>
+  <structure_view>tab view</structure_view>
+  <unlock_on_logout>0</unlock_on_logout>
+  <use_src_access>0</use_src_access>
+  <Relationships>
+   <Item type="Allowed Permission" id="79B63722DF0A4EE0945C538E9894C828" action="add">
+    <is_default>1</is_default>
+    <related_id keyed_name="Environmental Compliance" type="Permission">7F39503EC042486CBDF22C83E7E38E7D</related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Environmental Compliance" type="ItemType" name="Environmental Compliance">5895F2138B5F47E48702234C8D5E0A9D</source_id>
+   </Item>
+   <Item type="Can Add" id="1B528006A0804F47ABF077EDFBD4F331" action="add">
+    <can_add>1</can_add>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Environmental Compliance" type="ItemType" name="Environmental Compliance">5895F2138B5F47E48702234C8D5E0A9D</source_id>
+   </Item>
+   <Item type="Property" id="002E573EE3AE4152949A16C0221CF209" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>150</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label>Destination</label>
+    <name>destination</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>256</sort_order>
+    <source_id keyed_name="Environmental Compliance" type="ItemType" name="Environmental Compliance">5895F2138B5F47E48702234C8D5E0A9D</source_id>
+    <stored_length>32</stored_length>
+    </Item>
+   <Item type="Property" id="636264814F2847B9A874D5B7858BF2F0" action="add">
+    <column_alignment>left</column_alignment>
+    <data_source keyed_name="File" type="ItemType" name="File">8052A558B9084D41B9F11805E464F443</data_source>
+    <data_type>item</data_type>
+    <is_hidden>1</is_hidden>
+    <is_hidden2>1</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <item_behavior>float</item_behavior>
+    <label>Document</label>
+    <name>document</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>384</sort_order>
+    <source_id keyed_name="Environmental Compliance" type="ItemType" name="Environmental Compliance">5895F2138B5F47E48702234C8D5E0A9D</source_id>
+    </Item>
+   <Item type="Property" id="DDA69F4EBD4043C6AFCD9CB1EE41A5FA" action="add">
+    <column_alignment>left</column_alignment>
+    <column_width>100</column_width>
+    <data_type>string</data_type>
+    <is_hidden>0</is_hidden>
+    <is_hidden2>0</is_hidden2>
+    <is_indexed>0</is_indexed>
+    <is_keyed>0</is_keyed>
+    <is_multi_valued>0</is_multi_valued>
+    <is_required>0</is_required>
+    <label>Regulation</label>
+    <name>regulation</name>
+    <range_inclusive>0</range_inclusive>
+    <readonly>0</readonly>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Environmental Compliance" type="ItemType" name="Environmental Compliance">5895F2138B5F47E48702234C8D5E0A9D</source_id>
+    <stored_length>32</stored_length>
+    </Item>
+   <Item type="TOC Access" id="D5FF753CE166421DBA445941B803A639" action="add">
+    <category>Sourcing</category>
+    <related_id keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </related_id>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Environmental Compliance" type="ItemType" name="Environmental Compliance">5895F2138B5F47E48702234C8D5E0A9D</source_id>
+   </Item>
+   <Item type="View" id="6C3E9EFA3ED4486F8D55D81069CA78EB" action="add">
+    <client>js</client>
+    <related_id keyed_name="Environmental Compliance" type="Form">FDFC71FEAB804573B7A5C9F16511531D</related_id>
+    <role keyed_name="World" type="Identity">
+     <Item type="Identity" action="get" select="id">
+      <name>World</name>
+     </Item>
+    </role>
+    <sort_order>128</sort_order>
+    <source_id keyed_name="Environmental Compliance" type="ItemType" name="Environmental Compliance">5895F2138B5F47E48702234C8D5E0A9D</source_id>
+    <type>default</type>
+   </Item>
+  </Relationships>
+ </Item>
+</AML>

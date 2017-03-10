@@ -1,0 +1,14 @@
+<AML>
+ <Item type="Action" id="38D5FAEDC101485CBBE303CBA740908A" action="add">
+  <item_query>___is_new___</item_query>
+  <location>server</location>
+  <method keyed_name="Environmental Compliance Query" type="Method">
+   <Item type="Method" action="get" select="id">
+    <name>Environmental Compliance Query</name>
+   </Item>
+  </method>
+  <name>Compliance Query</name>
+  <target>window</target>
+  <type>item</type>
+ </Item>
+</AML>
